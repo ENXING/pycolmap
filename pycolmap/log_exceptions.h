@@ -14,6 +14,28 @@ inline std::string ToString(T msg) {
   return std::to_string(msg);
 }
 
+template <typename T>
+inline std::string statusToString(T status) {
+    switch (status) {
+        case T::FAILURE:
+            return "FAILURE";
+        case T::SUCCESS:
+            return "SUCCESS";
+        case T::IMAGE_EXISTS:
+            return "IMAGE_EXISTS";
+        case T::BITMAP_ERROR:
+            return "BITMAP_ERROR";
+        case T::CAMERA_SINGLE_DIM_ERROR:
+            return "CAMERA_SINGLE_DIM_ERROR";
+        case T::CAMERA_EXIST_DIM_ERROR:
+            return "CAMERA_EXIST_DIM_ERROR";
+        case T::CAMERA_PARAM_ERROR:
+            return "CAMERA_PARAM_ERROR";
+        default:
+            return "Unknown";
+    }
+}
+
 inline std::string ToString(std::string msg) { return msg; }
 
 inline std::string ToString(const char* msg) { return std::string(msg); }
