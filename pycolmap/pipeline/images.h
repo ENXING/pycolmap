@@ -54,7 +54,7 @@ void ImportImages(const std::string& database_path,
     ImageReader::Status status = image_reader.Next(&camera, &image, &bitmap, nullptr);
     if (status != ImageReader::Status::SUCCESS) {
       LOG(WARNING) << "Fail to read image: " << statusToString<ImageReader::Status>(status)
-                   << ", Image Index:" << image_reader.NextIndex()
+                   << ", Image Index:" << image_reader.NextIndex() - 1
                    << "/" << image_reader.NumImages();
       continue;
     }
